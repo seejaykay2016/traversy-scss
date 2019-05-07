@@ -1,12 +1,13 @@
-$primary-color: #17a2b8;
+$primary-color: #1096aa;
 $dark-color: #343a40;
 $light-color: #f4f4f4;
 $danger-color: #dc3545;
 $success-color: #28a745;
+$vdark-color: #db2518;
 $max-width: 1100px;
 
 @function set-text-color($color) {
-  @if (lightness($color) > 50) {
+  @if (lightness($color) > 60) {
     @return #333;
   } @else {
     @return #fff;
@@ -16,4 +17,23 @@ $max-width: 1100px;
 @mixin set-background($color) {
   background-color: $color;
   color: set-text-color($color);
+}
+$spaceamounts: (1, 2, 3, 4, 5);
+//All Around Margin
+@each $space in $spaceamounts {
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+  // All Around Padding
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+  // Vertical Padding
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
 }
